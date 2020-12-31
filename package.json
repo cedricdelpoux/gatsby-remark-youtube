@@ -1,0 +1,51 @@
+{
+  "name": "gatsby-remark-youtube",
+  "version": "1.0.0",
+  "description": "Gatsby remark plugin to embed Youtube videos with links",
+  "repository": "https://github.com/cedricdelpoux/gatsby-remark-youtube",
+  "author": {
+    "name": "Cédric Delpoux",
+    "email": "cedric.delpoux@gmail.com"
+  },
+  "license": "MIT",
+  "keywords": [
+    "gatsby",
+    "gatsby-plugin",
+    "gatsby-transformer-plugin",
+    "gatsby-remark",
+    "gatsby-remark-plugin",
+    "youtube",
+    "embed"
+  ],
+  "main": "index.js",
+  "dependencies": {
+    "unist-util-visit": "^2.0.3"
+  },
+  "devDependencies": {
+    "eslint": "^7.13.0",
+    "eslint-config-prettier": "^6.15.0",
+    "husky": "^4.2.1",
+    "lint-staged": "^10.5.1",
+    "prettier": "2.1.2"
+  },
+  "peerDependencies": {
+    "gatsby": "^2.0.0"
+  },
+  "scripts": {
+    "lint": "eslint index.js",
+    "prepublishOnly": "yarn lint"
+  },
+  "lint-staged": {
+    "*.js": [
+      "eslint"
+    ],
+    "*.{css,js,md}": [
+      "prettier --write"
+    ]
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  }
+}
