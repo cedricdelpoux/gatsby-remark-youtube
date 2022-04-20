@@ -22,7 +22,7 @@ const isYoutubeEmbedLink = (node) => {
 }
 
 const getEmbedCode = (url) => {
-  return `<iframe width="560" height="315" src="${url}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`
+  return `<iframe src="${url}" frameborder="0" allow="accelerometer;autoplay;clipboard-write;encrypted-media;gyroscope;picture-in-picture" allowfullscreen style="width: 100%;aspect-ratio: 16/9;"></iframe>`
 }
 
 module.exports = async ({markdownAST, cache, reporter}, pluginOptions) => {
