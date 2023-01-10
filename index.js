@@ -27,8 +27,10 @@ const getEmbedCode = (url) => {
   // Attributes
   const src = host && videoId ? `https://${host}/embed/${videoId}` : url
   const style = "width: 100%;aspect-ratio: 16/9;"
+  const allow =
+    "accelerometer;autoplay;clipboard-write;encrypted-media;gyroscope;picture-in-picture"
 
-  return `<iframe src="${src}" frameborder="0" allowfullscreen style="${style}"></iframe>`
+  return `<iframe src="${src}" frameborder="0" allow="${allow}" allowfullscreen style="${style}"></iframe>`
 }
 
 module.exports = async ({markdownAST, cache, reporter}, pluginOptions) => {
