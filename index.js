@@ -20,7 +20,15 @@ const isYoutubeEmbedLink = (node) => {
 }
 
 const getEmbedCode = (url) => {
-  return `<iframe src="${url}" frameborder="0" allow="accelerometer;autoplay;clipboard-write;encrypted-media;gyroscope;picture-in-picture" allowfullscreen style="width: 100%;aspect-ratio: 16/9;"></iframe>`
+  const urlObject = new URL(url)
+  const videoId = urlObject.searchParams.get("v") // https://www.youtube.com/watch?v=GV3MeVtOBGw
+  const {host} = urlObject
+
+  // Attributes
+  const src = host && videoId ? "https://${host}/embed/${videoId}" : url
+  const style = "width: 100%;aspect-ratio: 16/9;"
+
+  return `<iframe src="${src}" frameborder="0" allowfullscreen style="${style}"></iframe>`
 }
 
 module.exports = async ({markdownAST, cache, reporter}, pluginOptions) => {
