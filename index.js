@@ -6,16 +6,14 @@ const isYoutubeEmbedLink = (node) => {
   }
 
   try {
-    const {host, pathname} = new URL(node.url)
-    const isYoutubeActivityLink =
-      (host.includes("youtube.com") || host.includes("youtube-nocookie.com")) &&
-      pathname.includes("/embed/")
+    const {host} = new URL(node.url)
+    const isYoutubeUrl = host.includes("youtube")
     const isLink = node.type === "link"
     const isEmbedLink =
       node.children.length === 1 &&
       node.children[0].value.toLowerCase().includes("embed")
 
-    return isLink && isEmbedLink && isYoutubeActivityLink
+    return isLink && isEmbedLink && isYoutubeUrl
   } catch (e) {
     return false
   }
