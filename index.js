@@ -64,7 +64,7 @@ module.exports = async ({markdownAST, cache, reporter}, pluginOptions) => {
 
           node.type = `html`
           node.value = html
-          node.children = undefined
+          delete node.children
 
           if (pluginOptions.debug) {
             reporter.success(`remark-youtube: EMBED OK ${node.url}`)
