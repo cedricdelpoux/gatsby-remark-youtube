@@ -28,7 +28,7 @@ const getEmbedCode = (url) => {
   const src = host && videoId ? `https://${host}/embed/${videoId}` : url
   const style = "width: 100%;aspect-ratio: 16/9;"
   const allow =
-    "accelerometer;autoplay;clipboard-write;encrypted-media;gyroscope;picture-in-picture"
+    "accelerometer;autoplay;clipboard-write;encrypted-media;gyroscope;picture-in-picture;web-share"
 
   return `<iframe src="${src}" frameborder="0" allow="${allow}" allowfullscreen style="${style}"></iframe>`
 }
